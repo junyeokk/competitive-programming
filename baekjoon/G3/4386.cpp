@@ -4,8 +4,8 @@
 using namespace std;
 
 int parent[10001];
-vector<pair<int, pair<int, int>>> node;
-int v, e; // vertex, edge
+vector<pair<double, pair<double, double>>> node;
+vector<pair<double, double>> crd;
 double result = 0;
 
 /**
@@ -49,12 +49,11 @@ bool is_same_parent(int a, int b) {
  * 노드 만드는 함수
  */
 void make_node() {
-    cin >> v >> e;
-    for(int i = 0; i < e; i++) {
-        double from, to, cost;
-        cin >> from >> to;
-        // cost = pow(from, 2) + pow(to, 2);
-        node.push_back({cost, {from, to}});
+    for(int i = 0; i < crd.size(); i++) {
+        for(int j = i + 1; j < crd.size(); j++) {
+            double cost = sqrt(pow(crd[i].first - crd[j].first, 2) + pow(crd[i].second - crd[j].second, 2));
+            node.push_back({cost, {i, j}});
+        }
     }
     sort(node.begin(), node.end());
 }
@@ -63,7 +62,7 @@ void make_node() {
  * MST 가중치 계산
  */
 void calc_mst() {
-    for(int i = 1; i <= v; i++) {
+    for(int i = 1; i <= crd.size(); i++) {
         parent[i] = i;
     }
 
@@ -75,7 +74,22 @@ void calc_mst() {
     }
 }
 
+/**
+ * 입력값을 받는 함수
+ */
+void input() {
+    int n;
+    double x, y;
+    cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        cin >> x >> y;
+        crd.push_back({x, y});
+    }
+}
+
 void solve() {
+    input();
     make_node();
     calc_mst();
 }
@@ -86,5 +100,6 @@ int main() {
 
     solve();
 
+    cout.precision(3);
     cout << result << '\n';
 }
