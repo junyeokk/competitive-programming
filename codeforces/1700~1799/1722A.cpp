@@ -15,7 +15,6 @@ void solve() {
     cout << (name == s ? "YES" : "NO") << '\n';
 }
 
-
 int main() {
     int t;
     cin >> t;

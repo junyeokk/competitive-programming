@@ -1,3 +1,34 @@
-//
-// Created by Junhyeok CHAE on 2022/10/13.
-//
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long
+
+void solve() {
+    ll n, sum = 0, ans = 0;
+    cin >> n;
+    vector<ll> a(n), b(n);
+
+    for(auto &it:a) {
+        cin >> it;
+        sum += it;
+    }
+    for(auto &it:b) {
+        cin >> it;
+        sum -= it;
+    }
+    for(ll i = 0; i < n; i++) {
+        ans += (a[i] ^ b[i]);
+    }
+    ans = min(ans, 1 + abs(sum));
+    cout << ans << '\n';
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while(t--) {
+        solve();
+    }
+}
