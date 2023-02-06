@@ -15,7 +15,7 @@ queue<pair<int, int>> q;
 void BFS(int x, int y) {
 	visited[x][y] = true;
 	cnt[x][y]++;
-	q.push(make_pair(x, y));
+	q.push({x, y});
 	
 	while(!q.empty()) {
 		int cur_x = q.front().first;
@@ -33,7 +33,7 @@ void BFS(int x, int y) {
               	// input 'current point + 1'
 				cnt[nx][ny] = cnt[cur_x][cur_y] + 1;
                 // and add 'next point'
-				q.push(make_pair(nx, ny));
+				q.push({nx, ny});
                 // modify 'next point''s status by 'true' in advance
 				visited[nx][ny] = true;
 			}
