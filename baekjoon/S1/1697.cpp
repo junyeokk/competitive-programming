@@ -38,6 +38,6 @@ int BFS(int subin, int bro) {
 
 int main() {
 	cin >> subin >> bro;
-	
+
 	cout << BFS(subin, bro) << '\n';
 }
