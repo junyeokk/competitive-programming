@@ -1,0 +1,10 @@
+n = int(input())
+
+max = 0
+for i in range(n):
+	w, h = map(int, input().split())
+	if max < w * h:
+		max = w * h
+
+print(max)
+	
