@@ -1,0 +1,20 @@
+n = int(input())
+total = 0
+isSaving = True
+
+for i in range(n):
+	inout, money = input().split()
+	
+	if inout == "in":
+		total += int(money)
+	elif inout == "out":
+		total -= int(money)
+		
+	if total < 0:
+		isSaving = False
+
+if isSaving:
+	print("success")
+else:
+	print("fail")
+	
