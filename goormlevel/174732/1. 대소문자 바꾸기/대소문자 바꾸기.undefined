@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+n = int(input())
+str = input()
+
+result = []
+
+for i in range(n):
+	if str[i].isupper():
+		result.append(str[i].lower())
+	elif str[i].islower():
+		result.append(str[i].upper())
+
+print(''.join(result))
