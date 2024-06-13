@@ -1,0 +1,14 @@
+import math
+
+n = int(input())
+event = []
+
+for i in range(n):
+	v, w = map(float, input().split())
+	total_value = math.floor(v * w * 10) / 10
+	event.append((total_value, i + 1))
+	
+event.sort(key=lambda x: (-x[0], x[1]))
+
+for value in event:
+	print(value[1], end=' ')
