@@ -1,0 +1,20 @@
+n, m = map(int, input().split())
+subject = [0] * m
+count = [0] * m
+max_score = -1
+max_index = -1
+
+for _ in range(n):
+	c, s = map(int, input().split())
+	subject[c - 1] += s
+	count[c - 1] += 1
+	
+for i in range(m):
+	if count[i] != 0:
+		subject[i] /= count[i]
+	if max_score < subject[i]:
+		max_score = subject[i]
+		max_index = i + 1
+
+print(max_index)
+	
