@@ -1,22 +1,16 @@
-c = 26
-d = 10
-s = list(input())
+choices = {'c': 26, 'd': 10}
+s = input()
+MOD = 1_000_000_009
 prev = ''
 
 res = 1
 
-for i in range(len(s)):
-    if s[i] == 'c':
-        if prev == s[i]:
-            res *= c - 1
-        else:
-            res *= c
-    elif s[i] == 'd':
-        if prev == s[i]:
-            res *= d - 1
-        else:
-            res *= d
-    prev = s[i]
-    res %= 1000000009
+for ch in s:
+    if prev == ch:
+        res *= choices[ch] - 1
+    else:
+        res *= choices[ch]
+    prev = ch
+    res %= MOD
 
 print(res)
