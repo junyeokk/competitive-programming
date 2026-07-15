@@ -24,7 +24,7 @@ while low <= high:
     mid = (low + high) // 2
     chkc = count(mid)
     if chkc >= c: 
-        ans = max(ans, c)
+        ans = max(ans, mid)
         low = mid + 1
     else:
         high = mid - 1
