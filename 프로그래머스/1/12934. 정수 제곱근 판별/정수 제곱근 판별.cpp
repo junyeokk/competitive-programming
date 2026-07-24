@@ -1,0 +1,18 @@
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+typedef long long ll;
+
+ll solution(ll n) {
+    ll answer = 0;
+    
+    if(sqrt(n) == (int)sqrt(n)) {
+        answer = pow(sqrt(n) + 1, 2);
+    } else {
+        answer = -1;
+    }
+    
+    return answer;
+}
